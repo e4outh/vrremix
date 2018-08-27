@@ -1,4 +1,7 @@
 var copyEmailBtn = document.querySelector('.js-emailcopybtn');
+let myData = [];
+let openRow = "<div class='row'>";
+let closeRow = "</div><br/>"
 copyEmailBtn.addEventListener('click', function(event) {
   // Select the email link anchor text
   var emailLink = document.querySelector('.js-emaillink');
@@ -28,7 +31,8 @@ function loadXMLDoc() {
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
            if (xmlhttp.status == 200) {
-               document.getElementById("myDiv").innerHTML = displayData(JSON.parse(xmlhttp.responseText));
+              myData = JSON.parse(xmlhttp.responseText);
+               document.getElementById("myDiv").innerHTML = displayData(myData);
            }
            else if (xmlhttp.status == 400) {
               alert('There was an error 400');
@@ -61,17 +65,54 @@ $(document).ready(function() {
   });
 });
 
+function viewImage(imageURL){
+     $('.imagepreview').attr('src',imageURL); // here asign the image to the modal when the user click the enlarge link
+     $('.js-emaillink').html(imageURL);
+     $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+}
+
+function goBack(){
+  alert('Going back...');
+  window.history.back();
+}
+
+function gotoFolder(folderId){
+  let folderData;
+  for(let folder of myData.Folders){
+      if(folder.archiveNbr==folderId){
+        folderData = folder;
+        break;
+      }
+   }
+   document.getElementById("myDiv").innerHTML = "<input type='button' value='BACK' onclick='goBack();' /><br/>" + getHTMLFromFile(folderData.Files);
+}
+
+function getHTMLFromFile(files){
+  let columnCount =0;
+  let responseText = "<br/><br/>Files:<br/>";
+    for(let file of files){
+      let fileIcon = '<a href="#" onclick=viewImage("'+file.thumbURL200+'");><img src="' + file.thumbURL200 +'"/>'+ file.displayName+'</a>';
+      let displayName = '<div class="col-md-2">'+ fileIcon + '</div>';
+      responseText+=displayName;
+      columnCount++;
+     if(columnCount==6){
+       columnCount =0;
+       responseText+=closeRow;
+       responseText+=openRow;
+     }
+    }
+
+    return responseText;
+}
 function displayData(jsonData){
   let folders = jsonData.Folders;
   let files = jsonData.Files;
   let columnCount =0;
-  let openRow = "<div class='row'>";
-  let closeRow = "</div><br/>"
   let responseText="<br/>Folders:<br/><br/>";
 
   responseText+=openRow;
   for(let folder of folders){
-    let folderIcon = '<button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-folder-close" aria-hidden="true">'+ folder.displayName +'</span></button>';
+    let folderIcon = '<button type="button" class="btn btn-default" aria-label="Left Align" onclick=gotoFolder("'+ folder.archiveNbr+'");><span class="glyphicon glyphicon-folder-close" aria-hidden="true">'+ folder.displayName +'</span></button>';
     let displayName = "<div class='col-md-2'>"+ folderIcon + "</div>";
     responseText+=displayName;
     columnCount++;
@@ -81,19 +122,6 @@ function displayData(jsonData){
      responseText+=openRow;
    }
   }
-
-responseText+="<br/><br/>Files:<br/>"
-  for(let file of files){
-    let fileIcon = "<a href=''><img src='" + file.thumbURL200 +"'/>"+ file.displayName+"</a>";
-    let displayName = "<div class='col-md-2'>"+ fileIcon + "</div>";
-    responseText+=displayName;
-    columnCount++;
-   if(columnCount==6){
-     columnCount =0;
-     responseText+=closeRow;
-     responseText+=openRow;
-   }
-  }
-
+  responseText += getHTMLFromFile(files);
   return responseText;
 }
