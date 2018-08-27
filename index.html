@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Test Page</title>
+
+  </head>
+  <body>
+    <div id="myDiv">
+    </div>
+
+    <a href="#" class="pop">
+        <img id="imageresource" src="https://cdn2.permanent.org/00fz-0013.thumb.w200?t=1565449570&Expires=1565449570&Signature=CWT-aEGwUr9VEz-rwuhYOd6E59lTVb0k0YtU7AZWCwXLDKPHLwKkDs8btIIi6sWA6b6J-6HONM0BAVt100pEo7LeWhedQljrWQVR6zNwa0qQveDvSg2wIkXwcOrYTZcY-X2~ZtWWUB3skh8Ni36eiONuCv0VQ670BkyJbFrXrtnc9t3EWlEZXQAa9cXz1fT8qVVnX8cyGXXqTRk~gXPXqt0s~PLxkU0qtTamE6JDC685JRMWFRZpSICOpwE~t3QeY~EjaY9IR7PhlCmcxxIxUtWxYgBiheBrk7J5ZHN1M4gLjSQLW4zwC4hsnvUtWQjYKMSIsRle~Hj8nG34q92TvA__&Key-Pair-Id=APKAJP2D34UGZ6IG443Q" style="width: 400px; height: 264px;">
+    </a>
+
+    <a href="#" class="pop">
+        <img  id="imageresource" src="https://cdn2.permanent.org/00fz-0013.thumb.w200?t=1565449570&Expires=1565449570&Signature=CWT-aEGwUr9VEz-rwuhYOd6E59lTVb0k0YtU7AZWCwXLDKPHLwKkDs8btIIi6sWA6b6J-6HONM0BAVt100pEo7LeWhedQljrWQVR6zNwa0qQveDvSg2wIkXwcOrYTZcY-X2~ZtWWUB3skh8Ni36eiONuCv0VQ670BkyJbFrXrtnc9t3EWlEZXQAa9cXz1fT8qVVnX8cyGXXqTRk~gXPXqt0s~PLxkU0qtTamE6JDC685JRMWFRZpSICOpwE~t3QeY~EjaY9IR7PhlCmcxxIxUtWxYgBiheBrk7J5ZHN1M4gLjSQLW4zwC4hsnvUtWQjYKMSIsRle~Hj8nG34q92TvA__&Key-Pair-Id=APKAJP2D34UGZ6IG443Q" style="width: 400px; height: 264px;">
+    </a>
+
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+          </div>
+          <div class="modal-body">
+          	<!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+            <img id="imageURL" src="" class="imagepreview" style="width: 100%;"><br/>
+            <a class="js-emaillink" href="mailto:chriscoyier@gmail.com">chriscoyier@gmail.com</a><br/><br/>
+          </div>
+          <div class="modal-footer">
+            <p><button class="js-emailcopybtn">Copy URL</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+  <!-- BS JavaScript -->
+  <script type="text/javascript" src="main.js">
+  function myFunction() {
+    var copyText = document.getElementById("imageURL");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+  }
+  </script>
+</html>
