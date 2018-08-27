@@ -4,21 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Test Page</title>
 
   </head>
   <body>
-    <div id="myDiv">
+
+    <div class="row">
+      <div class="column">
+        <h2>Column 1</h2>
+        <p>Some text..</p>
+      </div>
+      <div class="column1">
+        <div id="myDiv">
+        </div>
+      </div>
     </div>
 
-    <a href="#" class="pop">
+<br/><br/><br/><br/>
+
+    <!-- <a href="#" class="pop">
         <img id="imageresource" src="https://cdn2.permanent.org/00fz-0013.thumb.w200?t=1565449570&Expires=1565449570&Signature=CWT-aEGwUr9VEz-rwuhYOd6E59lTVb0k0YtU7AZWCwXLDKPHLwKkDs8btIIi6sWA6b6J-6HONM0BAVt100pEo7LeWhedQljrWQVR6zNwa0qQveDvSg2wIkXwcOrYTZcY-X2~ZtWWUB3skh8Ni36eiONuCv0VQ670BkyJbFrXrtnc9t3EWlEZXQAa9cXz1fT8qVVnX8cyGXXqTRk~gXPXqt0s~PLxkU0qtTamE6JDC685JRMWFRZpSICOpwE~t3QeY~EjaY9IR7PhlCmcxxIxUtWxYgBiheBrk7J5ZHN1M4gLjSQLW4zwC4hsnvUtWQjYKMSIsRle~Hj8nG34q92TvA__&Key-Pair-Id=APKAJP2D34UGZ6IG443Q" style="width: 400px; height: 264px;">
     </a>
 
     <a href="#" class="pop">
         <img  id="imageresource" src="https://cdn2.permanent.org/00fz-0013.thumb.w200?t=1565449570&Expires=1565449570&Signature=CWT-aEGwUr9VEz-rwuhYOd6E59lTVb0k0YtU7AZWCwXLDKPHLwKkDs8btIIi6sWA6b6J-6HONM0BAVt100pEo7LeWhedQljrWQVR6zNwa0qQveDvSg2wIkXwcOrYTZcY-X2~ZtWWUB3skh8Ni36eiONuCv0VQ670BkyJbFrXrtnc9t3EWlEZXQAa9cXz1fT8qVVnX8cyGXXqTRk~gXPXqt0s~PLxkU0qtTamE6JDC685JRMWFRZpSICOpwE~t3QeY~EjaY9IR7PhlCmcxxIxUtWxYgBiheBrk7J5ZHN1M4gLjSQLW4zwC4hsnvUtWQjYKMSIsRle~Hj8nG34q92TvA__&Key-Pair-Id=APKAJP2D34UGZ6IG443Q" style="width: 400px; height: 264px;">
-    </a>
+    </a> -->
 
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -28,7 +39,6 @@
             <h4 class="modal-title" id="myModalLabel">Image preview</h4>
           </div>
           <div class="modal-body">
-          	<!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
             <img id="imageURL" src="" class="imagepreview" style="width: 100%;"><br/>
             <a class="js-emaillink" href="mailto:chriscoyier@gmail.com">chriscoyier@gmail.com</a><br/><br/>
           </div>
