@@ -91,7 +91,7 @@ function getHTMLFromFile(files){
   let responseText = "<br/><br/>Files:<br/>";
     for(let file of files){
       let fileIcon = '<a href="#" onclick=viewImage("'+file.thumbURL200+'");><img src="' + file.thumbURL200 +'"/>'+ file.displayName+'</a>';
-      let displayName = '<div class="col-md-2">'+ fileIcon + '</div>';
+      let displayName = '<div class="col-md-2">'+ fileIcon + '</div>&nbsp;&nbsp;';
       responseText+=displayName;
       columnCount++;
      if(columnCount==6){
