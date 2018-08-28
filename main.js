@@ -72,8 +72,9 @@ function viewImage(imageURL){
 }
 
 function goBack(){
-  alert('Going back...');
-  window.history.back();
+  //alert('Going back...');
+  location.reload();
+  //window.history.back();
 }
 
 function gotoFolder(folderId){
