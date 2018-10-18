@@ -14,6 +14,7 @@
         var copyText = document.getElementById("urlholder");
         copyText.select();
         document.execCommand("copy");
+        console.log('copied...'+copyText.value);
       });
 
       $('.theme-icons').on("click", function (evt) {
