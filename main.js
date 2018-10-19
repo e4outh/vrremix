@@ -50,8 +50,10 @@
       }
     };
 
-    var ts = '?t='+new Date().getMilliseconds();
+    var ts = '?_='+new Date().getMilliseconds();
     xmlhttp.open("GET", datafileURL+ts, true);
+    // xmlhttp.setRequestHeader("Cache-Control","no-cache");
+    xmlhttp.setRequestHeader("Cache-Control","no-cache");
     xmlhttp.send();
   }
 
