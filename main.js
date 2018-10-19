@@ -50,7 +50,8 @@
       }
     };
 
-    xmlhttp.open("GET", datafileURL, true);
+    var ts = '?t='+new Date().getMilliseconds();
+    xmlhttp.open("GET", datafileURL+ts, true);
     xmlhttp.send();
   }
 
@@ -224,6 +225,7 @@
           fetchChild(node[keys[i]], qry).then(function (res) {
             resolve(res);
           });
+
         }
       }
     });
